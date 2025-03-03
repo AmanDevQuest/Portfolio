@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aman Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="https://yt3.googleusercontent.com/e30uMQV6Hmg4Tl8C6fAqq61d_B8k6iJB9n5Ye9K4_rT99na2HpBGdGezwvQwsRT-6hDc14xk92k=s160-c-k-c0x00ffffff-no-rj" type="image/x-icon" />
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0a192f;
+    color: #e6f1ff;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 80px; /* Height of the footer */
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(10, 25, 47, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #e6f1ff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #64ffda;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.left {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #64ffda;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.hamburger i {
+    font-size: 1.8rem;
+    color: #e6f1ff;
+}
+
+/* Hero Section */
+.firstsection {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 50px;
+    background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.95));
+}
+
+.leftsection {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.leftsection h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.purple {
+    color: #64ffda;
+}
+
+#element {
+    font-size: 2.5rem;
+    color: #64ffda;
+}
+
+.rightsection img {
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+}
+
+/* Section Styling */
+section {
+    padding: 60px 50px; /* Reduced padding */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #64ffda;
+    margin-bottom: 30px; /* Reduced margin */
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #64ffda;
+}
+
+/* About Section */
+.about {
+    max-width: 800px;
+    line-height: 1.8;
+}
+
+/* Skills Section */
+.skill-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.skill-item {
+    background: rgba(100, 255, 218, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: rgba(100, 255, 218, 0.1);
+    border-radius: 10px;
+    padding: 25px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card h3 {
+    color: #64ffda;
+    margin-bottom: 15px;
+}
+
+/* Education Section */
+.education-card {
+    background: rgba(100, 255, 218, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-left: 4px solid #64ffda;
+}
+
+.education-card h3 {
+    color: #64ffda;
+    margin-bottom: 10px;
+}
+
+/* Contact Section */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: rgba(100, 255, 218, 0.1);
+    border: 1px solid #64ffda;
+    border-radius: 5px;
+    color: #e6f1ff;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    background: transparent;
+    color: #64ffda;
+    padding: 15px 30px;
+    border: 1px solid #64ffda;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: rgba(100, 255, 218, 0.1);
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(10, 25, 47, 0.95);
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: #64ffda;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        padding: 20px;
+    }
+    
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(10, 25, 47, 0.95);
+        padding: 20px;
+    }
+    
+    nav ul.expanded {
+        display: flex;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    .firstsection {
+        flex-direction: column;
+        text-align: center;
+        padding: 150px 20px;
+    }
+    
+    .leftsection h1 {
+        font-size: 3rem;
+    }
+    
+    .rightsection img {
+        max-width: 300px;
+        margin-top: 50px;
+    }
+    
+    section {
+        padding: 60px 20px; /* Reduced padding */
+    }
+
+    .footer {
+        padding: 20px;
+    }
+}
+</style>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">AK.</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="firstsection">
+        <div class="leftsection">
+            <p>Hi, my name is</p>
+            <h1>Aman <span class="purple">Kumar</span></h1>
+            <div>I am enthusiast</div>
+            <span id="element"></span>
+        </div>
+        <div class="rightsection">
+            <img src="https://tinyurl.com/4xafpwx8" alt="picture">
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about">
+            <p>Hello! I'm Aman, a web developer passionate about creating beautiful and functional digital experiences.
+                With a strong foundation in both front-end and back-end development, I enjoy bringing ideas to life in
+                the browser.</p>
+            <br>
+            <p>My journey in web development began during my university years, and since then, I've been constantly
+                learning and growing in this ever-evolving field. I focus on writing clean, efficient code and creating
+                intuitive user experiences.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skill-container">
+            <div class="skill-item">HTML5</div>
+            <div class="skill-item">CSS3</div>
+            <div class="skill-item">JavaScript</div>
+            <div class="skill-item">React.js</div>
+            <div class="skill-item">Node.js</div>
+            <div class="skill-item">MongoDB</div>
+            <div class="skill-item">Git</div>
+            <div class="skill-item">Python</div>
+            <div class="skill-item">UI/UX Design</div>
+            <div class="skill-item">Responsive Design</div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>School Management Systen</h3>
+                <P>The School Management System is an innovative web-based application designed to streamline the
+                    administrative tasks of a school. This system focuses on student management, allowing for easy
+                    addition, viewing, and deletion of student records. The primary goal is to provide an intuitive and
+                    efficient platform that simplifies the process for administrators, teachers, and staff.</p>
+            </div>
+            <div class="project-card">
+                <h3>Online Quiz System</h3>
+                <p>The Online Quiz System is a dynamic web-based application designed to facilitate the creation,
+                    management, and execution of quizzes and tests. This system is intended to enhance the learning
+                    experience by providing a user-friendly platform for both educators and students. Its primary
+                    objective is to simplify the process of quiz administration and to offer a flexible, interactive
+                    environment for assessing students' knowledge.</p>
+            </div>
+            <div class="project-card">
+                <h3>Image Classification Using AI/ML</h3>
+                <p>This project focuses on leveraging Artificial Intelligence (AI) and Machine Learning (ML) techniques
+                    to classify images into various categories. By training an AI model on a dataset of labeled images,
+                    the system can automatically identify and categorize new images based on their features. The primary
+                    objective is to develop an accurate and efficient image classification model that can be used in
+                    various applications, such as object recognition, medical imaging, and more.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-card">
+            <h3>Bachelor of Computer application</h3>
+            <p>H.D Jain College | 2023- 2026</p>
+
+        </div>
+        <div class="education-card">
+            <h3>Class-12th</h3>
+            <p>H.D Jain College | 2021 - 2023</p>
+            <p>Percentage: 83.4%</p>
+        </div>
+        <div class="education-card">
+            <h3>Higher Secondary Education</h3>
+            <p>D.K Carmel Resedential High School | 2020 - 2021</p>
+            <p>Percentage: 93.8%</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Aman Kumar</p>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/aman-kumar-75bbb4315/" target="_blank"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/@aman_sharma_03" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://github.com/amansharmaofficial" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'UI/UX Designer', 'Full Stack Developer', 'Freelancer'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+    </script>
+</body>
+
+</html>
